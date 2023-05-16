@@ -24,5 +24,3 @@ const connectDB = async () => {
   }
 };
 module.exports = connectDB;
-
-//mongodb://127.0.0.1/MYRegistrationform
