@@ -6,6 +6,7 @@ const path = require("path");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const connectDB = require("./db/conn");
 require("./db/conn");
 const Register = require("./models/registers");
 
@@ -93,7 +94,9 @@ app.post("/login", async (req, res) => {
     res.status(400).send("invalid login Details");
   }
 });
-
-app.listen(port, () => {
-  console.log("Server is running on port 3000");
+//Connect to the database before listening
+connectDB().then(() => {
+  app.listen(port, () => {
+    console.log("server listening for requests");
+  });
 });
