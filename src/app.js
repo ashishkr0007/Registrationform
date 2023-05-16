@@ -97,6 +97,6 @@ app.post("/login", async (req, res) => {
 //Connect to the database before listening
 connectDB().then(() => {
   app.listen(port, () => {
-    console.log("server listening for requests");
+    console.log("server is listening on port 3000");
   });
 });
